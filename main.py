@@ -36,15 +36,33 @@ while True:
     choice = input("Enter your choice (1-5): ")
 
     if choice == '1':
+        number = int(input("Show pokemon by index"))
+        print(pokemons[number - 1])
         # https://www.w3schools.com/python/python_dictionaries_access.asp
         pass
     elif choice == '2':
+        # {'number': 15, 'name': 'BeedrillMega Beedrill', 'type_1': 'Bug', 'type_2': 'Poison', 'total': 495, 'hp': 65, 'attack': 150, 'defense': 40}
+        def strongest_pokemon(pokemon):
+            return int(pokemon['total'])
+        pokemons.sort(key = strongest_pokemon,reverse = True)   
+        print(pokemons[0:10])  
         # https://www.w3schools.com/python/python_lists_sort.asp
         pass
     elif choice == '3':
+        def weakest_pokemon(pokemon):
+            return int(pokemon['total'])
+        pokemons.sort(key = weakest_pokemon)
+        print(pokemons[0:10])
         # https://www.w3schools.com/python/python_lists_sort.asp
         pass
     elif choice == '4':
+        import random
+        print(random.choice(pokemons))
+        player_choice = int(input("Choose your pokemon"))
+        print(pokemons[player_choice - 1])
+        print("Battle starts")
+
+        
         # Battle
         # 
         # https://www.w3schools.com/python/ref_random_choice.asp - random choice
